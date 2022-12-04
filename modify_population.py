@@ -2,6 +2,7 @@ import random
 import zlib
 import struct
 import os
+import sys
 from deca.file import ArchiveFile
 from deca.ff_adf import Adf
 
@@ -127,7 +128,6 @@ def modify_population_8(fname):
 
 
 def modify_population_12(fname):
-    fname = ".\data\\animal_population_12"
     data_bytes = read_file(fname)
     data_bytes = bytearray(data_bytes)
 
@@ -188,6 +188,6 @@ if __name__ == '__main__':
     args = sys.argv[1:]
     if len(args) < 2:
         print("Usage: modify_population.py <animal_population_12> <animal_population_8>")
-        os.exit(1)
+        os._exit(1)
     modify_population_12(args[0])
     modify_population_8(args[1])
