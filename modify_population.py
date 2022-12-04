@@ -1,6 +1,7 @@
 import random
 import zlib
 import struct
+import os
 from deca.file import ArchiveFile
 from deca.ff_adf import Adf
 
@@ -81,8 +82,7 @@ def print_groups(populations):
         print("group:" + str(i) + " total animals:" + str(group_size_sum[i]))
         print(group_size[i])
 
-def modify_population_8():
-    fname = ".\data\\animal_population_8"
+def modify_population_8(fname):
     data_bytes = read_file(fname)
     data_bytes = bytearray(data_bytes)
 
@@ -126,7 +126,7 @@ def modify_population_8():
     save_file(pupolation_file, comed_data_bytes)
 
 
-def modify_population_12():
+def modify_population_12(fname):
     fname = ".\data\\animal_population_12"
     data_bytes = read_file(fname)
     data_bytes = bytearray(data_bytes)
@@ -185,5 +185,9 @@ def modify_population_12():
 
 
 if __name__ == '__main__':
-    modify_population_12()
-    modify_population_8()
+    args = sys.argv[1:]
+    if len(args) < 2:
+        print("Usage: modify_population.py <animal_population_12> <animal_population_8>")
+        os.exit(1)
+    modify_population_12(args[0])
+    modify_population_8(args[1])
