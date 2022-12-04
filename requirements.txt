@@ -3,7 +3,7 @@ matplotlib
 numpy
 scipy
 Pillow
-PySide
+PySide2
 XlsxWriter
 pygltflib
 openpyxl
@@ -11,4 +11,4 @@ kaitaistruct
 llvmlite
 numba
 zstandard
-mmh
+mmh3
