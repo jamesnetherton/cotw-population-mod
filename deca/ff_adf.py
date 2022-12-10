@@ -697,6 +697,11 @@ def read_instance(
                 offset = v0[0]
                 flags = v0[1]
                 length = v0[2]
+
+                print("Array")
+                print(type_def.name)
+                print(length)
+
                 # unknown = v0[3] sometimes does not exist, is it even real data, in some cases it removed in GZ EXE
                 align = None
                 # aligning based on element size info
@@ -708,6 +713,10 @@ def read_instance(
                 offset = buffer_pos
                 length = type_def.element_length
                 align = None
+
+                print("Array")
+                print(type_def.name)
+                print(length)
 
             if type_def.element_type_hash == typedef_u8:
                 # v, buffer_pos = ff_read_u8s(buffer, n_buffer, buffer_pos, length)
@@ -749,6 +758,8 @@ def read_instance(
 
             if opos is not None:
                 buffer_pos = opos
+
+                print(v)
 
             v = AdfValue(v, type_id, dpos + abs_offset, offset + abs_offset)
         elif type_def.metatype == 7:  # BitField
