@@ -714,7 +714,7 @@ def read_instance(
                 length = type_def.element_length
                 align = None
 
-                print("Array")
+                print("Inline Array")
                 print(type_def.name)
                 print(length)
 
@@ -759,7 +759,7 @@ def read_instance(
             if opos is not None:
                 buffer_pos = opos
 
-                print(v)
+            print(v)
 
             v = AdfValue(v, type_id, dpos + abs_offset, offset + abs_offset)
         elif type_def.metatype == 7:  # BitField
