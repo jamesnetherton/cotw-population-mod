@@ -59,6 +59,7 @@ def parse_adf(adf_flie):
     with ArchiveFile(open(adf_flie, 'rb')) as f:
         obj.deserialize(f)
     content = obj.dump_to_string(FakeVfs())
+    print(content)
     save_file(adf_flie + ".txt", bytearray(content, 'utf-8'))
 
     return obj

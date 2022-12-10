@@ -661,8 +661,19 @@ def read_instance(
             v = {}
             p0 = buffer_pos
             for m in type_def.members:
+                print ("*** before ***")
+                print (m.name_utf8)
+                print (p0)
+                print (m.offset)
+                print (buffer_pos)
+                print ("*** after ***")
+                print (m.name_utf8)
+                print (p0)
+                print (m.offset)
                 buffer_pos = p0 + m.offset
                 nm = m.name_utf8
+                print (buffer_pos)
+                print ("*************")
                 vt, buffer_pos = read_instance(
                     buffer, n_buffer, buffer_pos, m.type_hash, map_typedef, map_string_hash, abs_offset,
                     bit_offset=m.bit_offset, found_strings=found_strings)
