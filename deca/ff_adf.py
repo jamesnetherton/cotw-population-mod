@@ -716,6 +716,9 @@ def read_instance(
 
                 print("Inline Array")
                 print(type_def.name)
+                print("offset")
+                print(offset)
+                print("length")
                 print(length)
 
             if type_def.element_type_hash == typedef_u8:
